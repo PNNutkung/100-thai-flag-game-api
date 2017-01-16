@@ -21,5 +21,11 @@
   "bugs": {
     "url": "https://github.com/PNNutkung/100-thai-flag-game-api/issues"
   },
-  "homepage": "https://github.com/PNNutkung/100-thai-flag-game-api#readme"
+  "homepage": "https://github.com/PNNutkung/100-thai-flag-game-api#readme",
+  "dependencies": {
+    "body-parser": "^1.15.2",
+    "express": "^4.14.0",
+    "morgan": "^1.7.0",
+    "rethinkdb": "^2.3.3"
+  }
 }
