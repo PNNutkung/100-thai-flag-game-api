@@ -23,8 +23,10 @@
   },
   "homepage": "https://github.com/PNNutkung/100-thai-flag-game-api#readme",
   "dependencies": {
+    "async": "^2.1.4",
     "body-parser": "^1.15.2",
     "express": "^4.14.0",
+    "jsonwebtoken": "^7.2.1",
     "morgan": "^1.7.0",
     "rethinkdb": "^2.3.3"
   }
