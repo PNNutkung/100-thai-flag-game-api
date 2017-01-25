@@ -5,6 +5,7 @@ Suffix URL: **/api/player/token**
 Method: **POST**
 
 **Body**
+
 | Parameter Name | Example |
 |:--|:--:|
 | player_name | nut |
@@ -15,19 +16,17 @@ Method: **POST**
   "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiUGFrcG9uIiwidGltZV9zdGFtcCI6IjOlJ34jqc_gc9DlELhHph6EO-3IbpciDNkA6KM"
 }
 ```
----
 
 **Store Player score**
 Suffix URL: **/api/player/score**
 Method: **POST**
 
 **Body**
+
 | Parameter Name | Example |
 |:--|:--:|
 | token | eyJhbGciOiJIUzI1NiIsInRM |
 | score | 9999 |
-
----
 
 **Get Top 10 Players Score**
 Suffix URL: **/api/player/score**
