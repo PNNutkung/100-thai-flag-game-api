@@ -1,7 +1,6 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const morgan = require('morgan');
-const port = process.env.PORT || 18080;
 const app = express();
 const config = require('./config')
 

@@ -30,23 +30,45 @@ module.exports = function(app, r) {
 
   app.route('/player/score')
     .get(function(req, res) {
-      return res.json({
-        message: 'Test!'
-      })
+      r.table(config.rethinkdb.table)
+        .orderBy(r.desc('score'))
+        .limit(10)
+        .run(app._rdbConn, function(err, cursor) {
+        if (err) throw err;
+        else cursor.toArray(function(err, result) {
+          if(err) throw err;
+          else
+            return res.status(200).json({
+              listOfPlayers: result
+            });
+        });
+      });
     })
     .post(function(req, res) {
-      try {
-        let decoded = jwt.verify(req.body.token, '100_thai_flag_game');
-        //TODO: decoded.name to get player name, and insert to database
-        console.log(decoded.name);
-        console.log(decoded.time_stamp);
-        return res.status(200).json({
-          message: 'Successful!'
+      if(!req.body.score)
+        return res.status(400).json({
+          message: 'Invalid player\'s score!'
         });
-      } catch (err) {
-        return res.status(203).json({
-          message: 'You are suppose to be here <3'
-        });
+      else {
+        try {
+          let decoded = jwt.verify(req.body.token, '100_thai_flag_game');
+          let data = {
+            name: decoded.name,
+            score: req.body.score,
+            createdAt: new Date()
+          };
+          r.table(config.rethinkdb.table)
+            .insert(data)
+            .run(app._rdbConn, function(err, result) {
+              if (err) throw err;
+              else
+                return res.status(201).json({ message: 'Create score successful.' });
+            });
+        } catch (err) {
+          return res.status(203).json({
+            message: 'You are not suppose to be here <3'
+          });
+        }
       }
     });
 
