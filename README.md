@@ -1,6 +1,6 @@
 # 100 Thai Flag Game API
 
-**Get player token**
+## Get player token
 Suffix URL: **/api/player/token**
 Method: **POST**
 
@@ -17,7 +17,7 @@ Method: **POST**
 }
 ```
 
-**Store Player score**
+## Store Player score
 Suffix URL: **/api/player/score**
 Method: **POST**
 
@@ -28,7 +28,7 @@ Method: **POST**
 | token | eyJhbGciOiJIUzI1NiIsInRM |
 | score | 9999 |
 
-**Get Top 10 Players Score**
+## Get Top 10 Players Score 
 Suffix URL: **/api/player/score**
 Method: **GET**
 
