@@ -39,18 +39,18 @@ module.exports = function(app, express) {
       });
     },
     function createIndex(connection, callback) {
-      r.table(config.rethinkdb.table).indexList().contains('createdAt').do(function(hasIndex) {
+      r.table(config.rethinkdb.table).indexList().contains('score').do(function(hasIndex) {
         return r.branch(
           hasIndex,
           {create: 0},
-          r.table(config.rethinkdb.table).indexCreate('createdAt')
+          r.table(config.rethinkdb.table).indexCreate('score')
         );
       }).run(connection, function(err) {
         callback(err, connection);
       });
     },
     function waitForIndex(connection, callback) {
-      r.table(config.rethinkdb.table).indexWait('createdAt').run(connection, function(err, result) {
+      r.table(config.rethinkdb.table).indexWait('score').run(connection, function(err, result) {
         callback(err, connection);
       });
     }
