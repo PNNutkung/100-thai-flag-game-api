@@ -3,13 +3,9 @@ const config = require('../config');
 const r = require('rethinkdb');
 
 module.exports = function(app, express) {
-  require('./restApi');
-
-  app.use(handle404);
-  app.use(handleError);
-
   function startExpress(connection) {
     app._rdbConn = connection;
+    require('./restApi')(app, r);
     app.listen(config.express.port);
     console.log('100 Thai Flag Game API online!');
   }
@@ -19,7 +15,7 @@ module.exports = function(app, express) {
       r.connect(config.rethinkdb, callback);
     },
     function createDatabase(connection, callback) {
-      r.dbList().contains(config.rethink.db).do(function(containsDb) {
+      r.dbList().contains(config.rethinkdb.db).do(function(containsDb) {
         return r.branch(
           containsDb,
           {created: 0},
@@ -45,7 +41,7 @@ module.exports = function(app, express) {
         return r.branch(
           hasIndex,
           {create: 0},
-          r.table.(config.rethinkdb.table).indexCreate('createdAt')
+          r.table(config.rethinkdb.table).indexCreate('createdAt')
         );
       }).run(connection, function(err) {
         callback(err, connection);
@@ -65,13 +61,4 @@ module.exports = function(app, express) {
 
     startExpress(connection);
   });
-}
-
-const handle404 = function(req, res, next) {
-  res.status(404).end('Not found');
-}
-
-const handleError(err, req, res, next) {
-  console.log(err.stack);
-  res.status(500).json({err: err.message});
 }
