@@ -17,7 +17,4 @@ app.use(function(req, res, next) {
 });
 app.use(morgan('dev'))
 
-app.listen(port);
-console.log('100 Thai Flag Game API online!');
-
 require('./routes/routesManager')(app, express);
