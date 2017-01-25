@@ -37,52 +37,64 @@ Method: **GET**
 {
   "score_list": [
     {
-      "createdAt": "2017-01-25T10:06:14.288Z",
-      "id": "ec3a0064-845d-42dc-b695-e376f4f6d3c6",
+      "createdAt": "2017-01-25T11:24:28.823Z",
+      "id": "755a2676-6627-4d96-bf5d-131a75c06626",
       "name": "Pakpon",
-      "score": "8967"
+      "score": 11
     },
     {
-      "createdAt": "2017-01-25T10:05:24.965Z",
-      "id": "a57fde50-1e36-402a-8bf4-823be954b177",
+      "createdAt": "2017-01-25T11:24:25.428Z",
+      "id": "556d115a-e26b-456b-9372-e3cf3c787d41",
       "name": "Pakpon",
-      "score": "55"
+      "score": 10
     },
     {
-      "createdAt": "2017-01-25T10:06:18.778Z",
-      "id": "3f00d648-5c43-499e-98b5-a20010430f97",
+      "createdAt": "2017-01-25T11:24:22.510Z",
+      "id": "e28ff6e2-e70c-44e6-81ef-2d9a9f52652d",
       "name": "Pakpon",
-      "score": "4332"
+      "score": 9
     },
     {
-      "createdAt": "2017-01-25T10:06:05.025Z",
-      "id": "bc62cb53-aebb-4728-9715-fee03e5c1c6f",
+      "createdAt": "2017-01-25T11:24:19.964Z",
+      "id": "06bce360-306a-454f-8691-7794dd972fdb",
       "name": "Pakpon",
-      "score": "4321"
+      "score": 8
     },
     {
-      "createdAt": "2017-01-25T10:06:17.038Z",
-      "id": "78ac2c15-37b7-48b3-ad47-94537cc85e4a",
+      "createdAt": "2017-01-25T11:24:16.635Z",
+      "id": "73b15272-6cac-4177-9298-1083d54013c3",
       "name": "Pakpon",
-      "score": "43"
+      "score": 7
     },
     {
-      "createdAt": "2017-01-25T10:05:54.602Z",
-      "id": "812a3611-fa53-4d49-b946-b9a9b0e9ff15",
+      "createdAt": "2017-01-25T11:24:15.380Z",
+      "id": "b702a1bd-0fe7-432c-b654-bfb32459b3d5",
       "name": "Pakpon",
-      "score": "4"
+      "score": 6
     },
     {
-      "createdAt": "2017-01-25T10:06:07.159Z",
-      "id": "ceabe3aa-89c6-422c-96b3-56848d11aa2a",
+      "createdAt": "2017-01-25T11:24:14.282Z",
+      "id": "5e562630-17df-41ad-a439-067e8e17b4a2",
       "name": "Pakpon",
-      "score": "234"
+      "score": 5
     },
     {
-      "createdAt": "2017-01-25T10:06:08.714Z",
-      "id": "6ba34714-39ef-483f-aa25-861556761b55",
+      "createdAt": "2017-01-25T11:24:12.987Z",
+      "id": "cee12396-1cdf-4cd5-9317-39a207c6c145",
       "name": "Pakpon",
-      "score": "23"
+      "score": 4
+    },
+    {
+      "createdAt": "2017-01-25T11:23:33.205Z",
+      "id": "1092cec9-e53d-4733-8457-50e7b7406eaa",
+      "name": "Pakpon",
+      "score": 3
+    },
+    {
+      "createdAt": "2017-01-25T11:23:31.979Z",
+      "id": "7d83f35b-2432-4654-8489-647073dc87f3",
+      "name": "Pakpon",
+      "score": 2
     }
   ]
 }
