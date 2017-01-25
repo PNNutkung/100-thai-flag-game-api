@@ -4,8 +4,10 @@ const r = require('rethinkdb');
 
 module.exports = function(app, express) {
   function startExpress(connection) {
-    app._rdbConn = connection;
-    require('./restApi')(app, r);
+    let apiRoutes = express.Router();
+    apiRoutes._rdbConn = connection;
+    app.use('/api', apiRoutes);
+    require('./restApi')(apiRoutes, r);
     app.listen(config.express.port);
     console.log('100 Thai Flag Game API online!');
   }

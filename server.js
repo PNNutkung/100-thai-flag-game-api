@@ -14,6 +14,6 @@ app.use(function(req, res, next) {
   res.header("Access-Control-Allow-Headers", "Content-Type, Access-Control-Allow-Headers, project_id, Authorization, o-Requested-With");
   next();
 });
-app.use(morgan('dev'))
+app.use(morgan('common'))
 
 require('./routes/routesManager')(app, express);

@@ -39,7 +39,7 @@ module.exports = function(app, r) {
           if(err) throw err;
           else
             return res.status(200).json({
-              listOfPlayers: result
+              score_list: result
             });
         });
       });
