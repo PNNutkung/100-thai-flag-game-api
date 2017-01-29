@@ -54,17 +54,35 @@ module.exports = function(app, r) {
       else {
         try {
           let decoded = jwt.verify(req.body.token, '100_thai_flag_game');
+          var recordedDate = new Date();
           let data = {
             name: decoded.name,
             score: parseInt(req.body.score),
-            createdAt: new Date()
+            createdAt: recordedDate
           };
           r.table(config.rethinkdb.table)
             .insert(data)
             .run(app._rdbConn, function(err, result) {
               if (err) throw err;
-              else
-                return res.status(201).json({ message: 'Create score successful.' });
+              else {
+                r.table(config.rethinkdb.table)
+                  .orderBy(r.desc('score'))
+                  .run(app._rdbConn, function(err, cursor) {
+                  if (err) throw err;
+                  else {
+                    cursor.toArray(function(err, score_list) {
+                      if(err) throw err;
+                      else {
+                        let rank = score_list.findIndex( player => player['createdAt'].valueOf() === recordedDate.valueOf() ) + 1;
+                        return res.status(201).json({
+                          message: 'Create score successful.',
+                          ranking: rank
+                        });
+                      }
+                    });
+                  }
+                });
+              }
             });
         } catch (err) {
           return res.status(203).json({
