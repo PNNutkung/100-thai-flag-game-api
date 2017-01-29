@@ -28,6 +28,13 @@ Method: **POST**
 | token | eyJhbGciOiJIUzI1NiIsInRM |
 | score | 9999 |
 
+**Returned JSON**
+```
+{
+  ranking: 1
+}
+```
+
 ## Get Top 10 Players Score  
 Suffix URL: **/api/player/score**  
 Method: **GET**  
