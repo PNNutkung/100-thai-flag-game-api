@@ -3,8 +3,8 @@ import config from '../config'
 import r from 'rethinkdb'
 import Chalk from 'chalk'
 
-module.exports = function (app, express){
-  function startExpress (connection){
+module.exports = (app, express) => {
+  function startExpress(connection){
     let apiRoutes = express.Router()
     apiRoutes._rdbConn = connection
     app.use('/api', apiRoutes)
@@ -15,10 +15,10 @@ module.exports = function (app, express){
 
   async.waterfall(
     [
-      function connect (callback){
+      function connect(callback){
         r.connect(config.rethinkdb, callback)
       },
-      function createDatabase (connection, callback){
+      function createDatabase(connection, callback){
         r
           .dbList()
           .contains(config.rethinkdb.db)
@@ -33,7 +33,7 @@ module.exports = function (app, express){
             callback(err, connection)
           })
       },
-      function createTable (connection, callback){
+      function createTable(connection, callback){
         r
           .tableList()
           .contains(config.rethinkdb.table)
@@ -48,7 +48,7 @@ module.exports = function (app, express){
             callback(err, connection)
           })
       },
-      function createIndex (connection, callback){
+      function createIndex(connection, callback){
         r
           .table(config.rethinkdb.table)
           .indexList()
@@ -64,7 +64,7 @@ module.exports = function (app, express){
             callback(err, connection)
           })
       },
-      function waitForIndex (connection, callback){
+      function waitForIndex(connection, callback){
         r
           .table(config.rethinkdb.table)
           .indexWait('score')
