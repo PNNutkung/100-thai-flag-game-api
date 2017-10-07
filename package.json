@@ -36,8 +36,8 @@
   },
   "lint-staged": {
     "*.js": [
-      "eslint --fix",
       "prettier --single-quote --no-semi --space-before-function-paren --write",
+      "eslint --fix",
       "git add -A"
     ]
   },
@@ -58,6 +58,7 @@
     "husky": "^0.14.3",
     "lint-staged": "^4.2.3",
     "prettier": "^1.7.4",
+    "prettier-eslint": "^8.2.0",
     "prettier-miscellaneous": "^1.5.3"
   }
 }

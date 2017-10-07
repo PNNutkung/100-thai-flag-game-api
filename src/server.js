@@ -1,9 +1,9 @@
-const FileStreamRotator = require('file-stream-rotator')
-const express = require('express')
-const bodyParser = require('body-parser')
-const morgan = require('morgan')
-const fs = require('fs')
-const path = require('path')
+import FileStreamRotator from 'file-stream-rotator'
+import express from 'express'
+import bodyParser from 'body-parser'
+import morgan from 'morgan'
+import fs from 'fs'
+import path from 'path'
 const app = express()
 const logDirectory = path.join(__dirname, 'log')
 

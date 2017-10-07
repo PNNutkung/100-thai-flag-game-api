@@ -78,7 +78,6 @@ module.exports = (app, express) => {
         console.log(Chalk.bgMagenta(err))
         process.exit(1)
       }
-
       startExpress(connection)
     }
   )
