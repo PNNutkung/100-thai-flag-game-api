@@ -1,8 +1,27 @@
+import Chalk from 'chalk'
 import config from '../config'
 import jwt from 'jsonwebtoken'
-import Chalk from 'chalk'
 
 module.exports = (app, r) => {
+  app.route('/migrate')
+    .get((req, res) => {
+      r
+        .table(config.rethinkdb.table)
+        .orderBy(r.desc('score'))
+        .run(app._rdbConn, (err, cursor) => {
+          if (err) console.log(Chalk.bgRed(err))
+          else {
+            cursor.toArray((err, result) => {
+              if (err) console.log(Chalk.bgRed(err))
+              else {
+                return res.status(200).json({
+                  score_list: result
+                })
+              }
+            })
+          }
+        })
+    })
   app.route('/player/token').post((req, res) => {
     if (!req.body.player_name) {
       return res.status(401).json({
